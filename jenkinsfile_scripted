@@ -1,12 +1,9 @@
 node {
     stage 'Checkout'
-        checkout scm
+        checkout([$class: 'GitSCM', userRemoteConfigs: [[url: 'https://github.com/nkurella1979/robotframework-github_rest_api_library.git'],)
 
     stage 'Build'
-        bat 'nuget restore SolutionName.sln'
-        bat "\"${tool 'MSBuild'}\" SolutionName.sln /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
-
-    stage 'Archive'
-        archive 'ProjectName/bin/Release/**'
-
+        dir('C:/abc/') {
+            bat 'python setup.py install'
+        }
 }
