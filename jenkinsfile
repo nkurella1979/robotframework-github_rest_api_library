@@ -1,15 +1,20 @@
 pipeline {
     agent any
     stages {
-        dir('C:/abc') {
             stage("Clone") {
-                steps {
-                    git 'https://github.com/nkurella1979/robotframework-github_rest_api_library.git'
+                dir('C:/abc') {
+                    steps {
+                        git 'https://github.com/nkurella1979/robotframework-github_rest_api_library.git'
+                    }
                 }
             }
             stage("Build") {
-                steps {
-
+                dir('C:/abc') {
+                    steps {
+                        dir('robotframework-github_rest_api_library') {
+                            bat 'python setup.py install'
+                        }
+                    }
                 }
             }
         }
