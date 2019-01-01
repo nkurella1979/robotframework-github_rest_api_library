@@ -22,5 +22,12 @@ pipeline {
                    }
                 }
             }
+            stage("SEND EMAIL"){
+                steps {
+                    mail (to: 'kurellanarendra@gmail.com',
+                        subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) is completed",
+                        body: "Please go to ${env.BUILD_URL}.")
+                }
+            }
     }
 }
