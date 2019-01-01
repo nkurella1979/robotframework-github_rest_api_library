@@ -1,7 +1,11 @@
 node {
     stage 'Checkout'
-        checkout([$class: 'GitSCM', userRemoteConfigs: [url: 'https://github.com/nkurella1979/robotframework-github_rest_api_library.git']])
-
+        dir('C:/abc/') {
+            checkout([
+                  $class: 'GitSCM', branches: [[name: '*/master']],
+                  userRemoteConfigs: [[url: 'https://github.com/nkurella1979/robotframework-github_rest_api_library.git']]
+              ])
+        }
     stage 'Build'
         dir('C:/abc/') {
             bat 'python setup.py install'
