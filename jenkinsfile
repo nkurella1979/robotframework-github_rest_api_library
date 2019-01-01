@@ -1,9 +1,16 @@
 pipeline {
     agent any
     stages {
-        stage("Build") {
-            steps {
-                git 'https://github.com/nkurella1979/robotframework-github_rest_api_library.git'
+        dir('C:/abc') {
+            stage("Clone") {
+                steps {
+                    git 'https://github.com/nkurella1979/robotframework-github_rest_api_library.git'
+                }
+            }
+            stage("Build") {
+                steps {
+
+                }
             }
         }
     }
