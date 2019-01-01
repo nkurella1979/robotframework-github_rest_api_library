@@ -10,7 +10,7 @@ pipeline {
             }
             stage("Build") {
                 steps {
-                    dir('C:/abc/robotframework-github_rest_api_library') {
+                    dir('C:/abc/') {
                         bat 'python setup.py install'
                     }
                 }
