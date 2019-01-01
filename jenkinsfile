@@ -15,5 +15,12 @@ pipeline {
                     }
                 }
             }
+            stage("LAUNCH RIDE"){
+                steps {
+                   dir('C:/Python27/Scripts') {
+                       bat 'python ride.py'
+                   }
+                }
+            }
     }
 }
